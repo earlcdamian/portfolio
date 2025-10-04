@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ANC+ Group of Companies</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #111;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    header {
+      background-color: black;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      flex-wrap: wrap;
+    }
+    .back-button {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      flex: 1;
+    }
+
+    /* Content */
+    .content {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .content h2 {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+    .content p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    /* Desktop Gallery */
+    .gallery {
+      max-width: 1200px;
+      margin: 30px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      padding: 0 20px;
+    }
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Mobile Slider */
+    .slider {
+      display: none;
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .slide {
+      display: none;
+      width: 100%;
+    }
+    .slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .active-slide {
+      display: block;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: black;
+      color: white;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    /* Responsive: show slider on mobile */
+    @media (max-width: 768px) {
+      .gallery { display: none; }
+      .slider { display: block; }
+      .logo { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="index.html#projects" class="back-button">← Back</a>
+    <div class="logo">ANC+ Group of Companies (September 2025 - Present)</div>
+  </nav>
+</header>
+
+<section class="content" id="story">
+  <h2>IT SPECIALIST</h2>
+  <p>• Manages and supports the dealership’s IT infrastructure across branches in Baliuag, Pulilan, Marilao, San Fernando, and Angeles, Pampanga. Responsible for maintaining hardware, software, networks, and systems to ensure smooth business operations. Provides technical support, troubleshoots issues, safeguards data security, and optimizes system performance for daily dealership activities.</p>
+</section>
+
+<!-- Desktop Gallery -->
+<section class="gallery" id="gallery">
+  <img src="smplfam.jpg" alt="Work photo 1">
+  <img src="smpl2.jpg" alt="Work photo 2">
+  <img src="smpl3.jpg" alt="Work photo 3">
+  <img src="smpl4.jpg" alt="Work photo 4">
+  <img src="smpl5.jpg" alt="Work photo 5">
+  <img src="smpl6.jpg" alt="Work photo 6">
+  <img src="smpl7.jpg" alt="Work photo 7">
+  <img src="smpl9.jpg" alt="Work photo 9">
+  <img src="smpl11.jpg" alt="Work photo 10">
+  <img src="smpl12.jpg" alt="Work photo 12">
+  <img src="smpl13.jpg" alt="Work photo 13">
+</section>
+
+<!-- Mobile Slider -->
+<div class="slider" id="slider">
+  <div class="slide active-slide"><img src="smplfam.jpg" alt="Work photo 1"></div>
+  <div class="slide"><img src="smpl2.jpg" alt="Work photo 2"></div>
+  <div class="slide"><img src="smpl3.jpg" alt="Work photo 3"></div>
+  <div class="slide"><img src="smpl4.jpg" alt="Work photo 4"></div>
+  <div class="slide"><img src="smpl5.jpg" alt="Work photo 5"></div>
+  <div class="slide"><img src="smpl6.jpg" alt="Work photo 6"></div>
+  <div class="slide"><img src="smpl7.jpg" alt="Work photo 7"></div>
+  <div class="slide"><img src="smpl9.jpg" alt="Work photo 9"></div>
+  <div class="slide"><img src="smpl11.jpg" alt="Work photo 10"></div>
+  <div class="slide"><img src="smpl12.jpg" alt="Work photo 12"></div>
+  <div class="slide"><img src="smpl13.jpg" alt="Work photo 13"></div>
+  <button class="prev" onclick="changeSlide(-1)">❮</button>
+  <button class="next" onclick="changeSlide(1)">❯</button>
+</div>
+
+<footer>
+  © Earl Damian Portfolio - 2025
+</footer>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  function showSlide(n) {
+    slides.forEach((slide, index) => {
+      slide.classList.remove("active-slide");
+      if(index === n) slide.classList.add("active-slide");
+    });
+  }
+
+  function changeSlide(n) {
+    currentSlide += n;
+    if(currentSlide >= slides.length) currentSlide = 0;
+    if(currentSlide < 0) currentSlide = slides.length - 1;
+    showSlide(currentSlide);
+  }
+</script>
+
+</body>
+</html>

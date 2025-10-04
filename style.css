@@ -1,0 +1,135 @@
+/* Nike-inspired theme: clean, bold, dark */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #121212;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.hero {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1587049352843-080b6c879204') center/cover no-repeat;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+
+.info {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.features span {
+  display: inline-block;
+  margin: 10px 10px 0;
+  font-size: 0.9rem;
+  background: #1db954;
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: #000;
+}
+
+.form-section {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #1c1c1c;
+  border-radius: 10px;
+}
+
+form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #1db954;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 500;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: #fff;
+  font-size: 1rem;
+}
+
+input[type="file"] {
+  background: none;
+}
+
+small {
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color: #aaa;
+}
+
+.instructions,
+.rules {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.instructions li,
+.rules li {
+  margin-bottom: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #1db954;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #17a84b;
+}

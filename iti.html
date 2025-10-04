@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intellismart Technology</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #111;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    header {
+      background-color: black;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      flex-wrap: wrap;
+    }
+    .back-button {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .back-button:hover {
+      opacity: 0.7;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      flex: 1;
+    }
+
+    /* Content */
+    .content {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .content h2 {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+    .content p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    /* Gallery */
+    .gallery {
+      max-width: 1200px;
+      margin: 30px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 0 20px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto; /* let images scale naturally */
+      aspect-ratio: 4/3; /* keeps uniform shape */
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+    .modal img {
+      max-width: 100%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+    .modal:target {
+      display: flex;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: black;
+      color: white;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .logo {
+        font-size: 1rem;
+        margin: 10px 0;
+      }
+      .content h2 {
+        font-size: 1.3rem;
+      }
+      .content p {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 10px;
+      }
+      .logo {
+        font-size: 0.9rem;
+      }
+      .gallery {
+        grid-template-columns: 1fr; /* stack images on small phones */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="index.html#projects" class="back-button">← Back</a>
+    <div class="logo">Intellismart Technology Incorporated (December 2024 – March 2025)</div>
+  </nav>
+</header>
+
+<section class="content" id="story">
+  <h2>IT Technical Support</h2>
+  <p>• Employee Laptop and Device Support: Fixed and maintained employee laptops.</p>
+  <p>• Active Directory and Outlook Management: Created and managed user accounts in Active Directory and Outlook.</p>
+  <p>• Network and Internet Setup: Set up internet and connected devices securely using Sophos Firewall.</p>
+  <p>• Software Installation and Updates: Installed and updated software on employee laptops.</p>
+  <p>• Biometric and Printer Setup: Set up and maintained biometric attendance devices and network printers.</p>
+  <p>• Remote Desktop Support: Used AnyDesk to provide remote help and fix tech issues quickly.</p>
+</section>
+
+<section class="gallery" id="gallery">
+  <img src="iti1.jpg" alt="Work photo 1">
+  <img src="iti2.jpg" alt="Work photo 2">
+  <img src="iti3.jpg" alt="Work photo 3">
+  <img src="iti4.jpg" alt="Work photo 4">
+  <img src="iti5.jpg" alt="Work photo 5">
+  <img src="iti6.jpg" alt="Work photo 6">
+  <img src="iti7.jpg" alt="Work photo 7">
+  <img src="iti8.jpg" alt="Work photo 8">
+  <img src="iti9.jpg" alt="Work photo 9">
+  <img src="iti10.jpg" alt="Work photo 10">
+</section>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <img src="" id="modal-img" alt="Expanded view">
+</div>
+
+<footer>
+  © Earl Damian Portfolio - 2025
+</footer>
+
+<script>
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  const galleryImgs = document.querySelectorAll(".gallery img");
+
+  galleryImgs.forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "flex";
+      modalImg.src = img.src;
+    });
+  });
+
+  modal.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+</script>
+
+</body>
+</html>

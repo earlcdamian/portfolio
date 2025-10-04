@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Balagtas National Agricultural High School</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  body {
+    background-color: #fff;
+    color: #111;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header {
+    background-color: black;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+  }
+  .back-button {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  .back-button:hover {
+    opacity: 0.7;
+  }
+  .logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    flex: 1;
+  }
+
+  /* Slideshow container */
+  .slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
+  .slide {
+    display: none;
+  }
+  .slide img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    max-height: 80vh; /* Prevents image from being too tall */
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
+  /* Arrows positioned at the edges of the screen */
+  .prev, .next {
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 3px;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    transition: background-color 0.3s ease;
+    z-index: 2000;
+  }
+  .prev {
+    left: 10px;
+  }
+  .next {
+    right: 10px;
+  }
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  footer {
+    text-align: center;
+    padding: 15px;
+    background: black;
+    color: white;
+    font-size: 0.9rem;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .slide img {
+      max-width: 100%;
+      max-height: 60vh; /* smaller height on mobile */
+    }
+    .prev, .next {
+      font-size: 24px;
+      padding: 8px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="index.html#projects" class="back-button">← Back</a>
+    <div class="logo">Balagtas National Agricultural High School</div>
+  </nav>
+</header>
+
+<!-- Slideshow -->
+<div class="slideshow-container">
+  <div class="slide"><img src="balagtas1.jpg" alt="Balagtas 1"></div>
+  <div class="slide"><img src="balagtas2.jpg" alt="Balagtas 2"></div>
+  <div class="slide"><img src="balagtas3.jpg" alt="Balagtas 3"></div>
+  <div class="slide"><img src="balagtas4.jpg" alt="Balagtas 4"></div>
+  <div class="slide"><img src="balagtas5.jpg" alt="Balagtas 5"></div>
+  <div class="slide"><img src="balagtas6.jpg" alt="Balagtas 6"></div>
+  <div class="slide"><img src="balagtas7.jpg" alt="Balagtas 7"></div>
+  <div class="slide"><img src="balagtas8.jpg" alt="Balagtas 8"></div>
+  <div class="slide"><img src="balagtas9.jpg" alt="Balagtas 9"></div>
+  <div class="slide"><img src="balagtas10.jpg" alt="Balagtas 10"></div>
+</div>
+
+<!-- Arrows outside -->
+<a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+<a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+<footer>
+  © Earl Damian Portfolio - 2025
+</footer>
+
+<script>
+let slideIndex = 1;
+showSlide(slideIndex);
+
+function changeSlide(n) {
+  showSlide(slideIndex += n);
+}
+
+function showSlide(n) {
+  let slides = document.getElementsByClassName("slide");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+</script>
+
+</body>
+</html>

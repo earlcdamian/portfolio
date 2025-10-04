@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CCRAMF Cages & Chicken Scratch Pen Ordering System</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  body {
+    background-color: #fff;
+    color: #111;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Navbar */
+  header {
+    background-color: black;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+  }
+  .back-button {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  .back-button:hover {
+    opacity: 0.7;
+  }
+  .logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    flex: 1;
+  }
+
+  /* Slideshow container */
+  .slideshow-container {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slide {
+    display: none;
+  }
+  .slide img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh; /* limit height on desktop */
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .slide img {
+      max-height: 60vh; /* smaller height for tablets */
+    }
+  }
+  @media (max-width: 480px) {
+    .slide img {
+      max-height: 50vh; /* smaller height for phones */
+    }
+  }
+
+  /* Arrows at the far edges */
+  .prev, .next {
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    width: auto;
+    padding: 12px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 3px;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    transition: background-color 0.3s ease;
+    z-index: 2000;
+  }
+  .prev {
+    left: 20px; /* further from image */
+  }
+  .next {
+    right: 20px; /* further from image */
+  }
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  footer {
+    text-align: center;
+    padding: 15px;
+    background: black;
+    color: white;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="index.html#projects" class="back-button">← Back</a>
+    <div class="logo">CCRAMF Cages & Chicken Scratch Pen Ordering System</div>
+  </nav>
+</header>
+
+<!-- Slideshow -->
+<div class="slideshow-container">
+  <div class="slide"><img src="CCRAMF1.jpg" alt="Choco 1"></div>
+   <div class="slide"><img src="CCRAMF2.jpg" alt="Choco 1"></div>
+    <div class="slide"><img src="CCRAMF3.jpg" alt="Choco 1"></div>
+     <div class="slide"><img src="CCRAMF4.jpg" alt="Choco 1"></div>
+      <div class="slide"><img src="CCRAMF5.jpg" alt="Choco 1"></div>
+       <div class="slide"><img src="CCRAMF6.jpg" alt="Choco 1"></div>
+        <div class="slide"><img src="CCRAMF7.jpg" alt="Choco 1"></div>
+         <div class="slide"><img src="CCRAMF8.jpg" alt="Choco 1"></div>
+          <div class="slide"><img src="CCRAMF9.jpg" alt="Choco 1"></div>
+           <div class="slide"><img src="CCRAMF10.jpg" alt="Choco 1"></div>
+</div>
+
+<!-- Arrows outside at far edges -->
+<a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+<a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+<footer>
+  © Earl Damian Portfolio - 2025
+</footer>
+
+<script>
+let slideIndex = 1;
+showSlide(slideIndex);
+
+function changeSlide(n) {
+  showSlide(slideIndex += n);
+}
+
+function showSlide(n) {
+  let slides = document.getElementsByClassName("slide");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+</script>
+
+</body>
+</html>
