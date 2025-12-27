@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ANC+ Group of Companies</title>
+  <title>ANC + Group of Companies </title>
   <style>
     * {
       margin: 0;
@@ -41,6 +41,9 @@
       text-decoration: none;
       font-size: 1rem;
     }
+    .back-button:hover {
+      opacity: 0.7;
+    }
     .logo {
       font-size: 1.2rem;
       font-weight: bold;
@@ -66,19 +69,19 @@
       margin-bottom: 10px;
     }
 
-    /* Desktop Gallery */
+    /* Gallery */
     .gallery {
       max-width: 1200px;
       margin: 30px auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
       padding: 0 20px;
     }
     .gallery img {
       width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
+      height: 200px; /* uniform height */
+      object-fit: cover; /* crop instead of stretch */
       border-radius: 10px;
       cursor: pointer;
       transition: transform 0.3s ease;
@@ -87,38 +90,64 @@
       transform: scale(1.05);
     }
 
-    /* Mobile Slider */
-    .slider {
+    /* Modal */
+    .modal {
       display: none;
-      position: relative;
-      max-width: 100%;
-      overflow: hidden;
-    }
-    .slide {
-      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
       width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
-    .slide img {
-      width: 100%;
-      height: auto;
+    .modal.show img {
+      transform: scale(1);
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 80%;
       border-radius: 10px;
+      transform: scale(0.7);
+      transition: transform 0.3s ease;
     }
-    .active-slide {
-      display: block;
-    }
-    .prev, .next {
+
+    /* Controls */
+    .controls {
       position: absolute;
       top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
       transform: translateY(-50%);
-      background: rgba(0,0,0,0.6);
+    }
+    .control-btn {
+      font-size: 2rem;
       color: white;
+      background: rgba(0,0,0,0.5);
       border: none;
-      padding: 10px;
+      padding: 10px 15px;
       cursor: pointer;
       border-radius: 50%;
+      transition: background 0.3s;
     }
-    .prev { left: 10px; }
-    .next { right: 10px; }
+    .control-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* Close button */
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
 
     /* Footer */
     footer {
@@ -130,11 +159,16 @@
       margin-top: auto;
     }
 
-    /* Responsive: show slider on mobile */
+    /* Responsive */
     @media (max-width: 768px) {
-      .gallery { display: none; }
-      .slider { display: block; }
-      .logo { font-size: 1rem; }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .logo {
+        font-size: 1rem;
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
@@ -143,68 +177,96 @@
 <header>
   <nav class="navbar">
     <a href="index.html#projects" class="back-button">← Back</a>
-    <div class="logo">ANC+ Group of Companies (September 2025 - Present)</div>
+    <div class="logo">ANC + Group of Companies  (Sept 2025 – Dec 2025)</div>
   </nav>
 </header>
 
 <section class="content" id="story">
-  <h2>IT SPECIALIST</h2>
-  <p>• Manages and supports the dealership’s IT infrastructure across branches in Baliuag, Pulilan, Marilao, San Fernando, and Angeles, Pampanga. Responsible for maintaining hardware, software, networks, and systems to ensure smooth business operations. Provides technical support, troubleshoots issues, safeguards data security, and optimizes system performance for daily dealership activities.</p>
+  <h2>IT Specialist / Front End Web Developer</h2>
+  <p>• Provide remote and onsite technical support in all dealers in Baliuag, Pulilan, Marilao, Malolos, Tarlac, San Fernando and Angeles City Pampanga for computer systems, networks, and peripherals.</p>
+  <p>• Install, configure, and maintain operating systems, applications, routers, printers, and other IT equipment.</p>
+  <p>• Supported Dealer Management System (DMS) and system maintenance. </p>
+  <p>•  Build and update responsive websites using HTML, CSS, JavaScript, and modern tools.</p>
+  <p>•  Convert design mockups into pixel-perfect, cross-browser compatible sites.</p>
+  <p>•  Test updates, new modules, and integrations before deployment</p>
+  <p>•  Provide improvement recommendations for usability & performance.</p>
 </section>
 
-<!-- Desktop Gallery -->
 <section class="gallery" id="gallery">
-  <img src="smplfam.jpg" alt="Work photo 1">
-  <img src="smpl2.jpg" alt="Work photo 2">
-  <img src="smpl3.jpg" alt="Work photo 3">
-  <img src="smpl4.jpg" alt="Work photo 4">
-  <img src="smpl5.jpg" alt="Work photo 5">
-  <img src="smpl6.jpg" alt="Work photo 6">
-  <img src="smpl7.jpg" alt="Work photo 7">
-  <img src="smpl9.jpg" alt="Work photo 9">
-  <img src="smpl11.jpg" alt="Work photo 10">
-  <img src="smpl12.jpg" alt="Work photo 12">
-  <img src="smpl13.jpg" alt="Work photo 13">
+  <img src="anc1.jpg" alt="Work photo 1">
+  <img src="anc2.jpg" alt="Work photo 2">
+  <img src="anc3.jpg" alt="Work photo 3">
+  <img src="anc4.jpg" alt="Work photo 4">
+  <img src="anc5.jpg" alt="Work photo 5">
+  <img src="anc6.jpg" alt="Work photo 6">
+  <img src="anc7.jpg" alt="Work photo 7">
+  <img src="anc8.jpg" alt="Work photo 9">
+    <img src="anc9.jpg" alt="Work photo 9">
+      <img src="anc10.jpg" alt="Work photo 9">
+
 </section>
 
-<!-- Mobile Slider -->
-<div class="slider" id="slider">
-  <div class="slide active-slide"><img src="smplfam.jpg" alt="Work photo 1"></div>
-  <div class="slide"><img src="smpl2.jpg" alt="Work photo 2"></div>
-  <div class="slide"><img src="smpl3.jpg" alt="Work photo 3"></div>
-  <div class="slide"><img src="smpl4.jpg" alt="Work photo 4"></div>
-  <div class="slide"><img src="smpl5.jpg" alt="Work photo 5"></div>
-  <div class="slide"><img src="smpl6.jpg" alt="Work photo 6"></div>
-  <div class="slide"><img src="smpl7.jpg" alt="Work photo 7"></div>
-  <div class="slide"><img src="smpl9.jpg" alt="Work photo 9"></div>
-  <div class="slide"><img src="smpl11.jpg" alt="Work photo 10"></div>
-  <div class="slide"><img src="smpl12.jpg" alt="Work photo 12"></div>
-  <div class="slide"><img src="smpl13.jpg" alt="Work photo 13"></div>
-  <button class="prev" onclick="changeSlide(-1)">❮</button>
-  <button class="next" onclick="changeSlide(1)">❯</button>
+<!-- Modal -->
+<div id="modal" class="modal">
+  <span class="close-btn">&times;</span>
+  <img src="" id="modal-img" alt="Expanded view">
+  <div class="controls">
+    <button class="control-btn" id="prev">&#10094;</button>
+    <button class="control-btn" id="next">&#10095;</button>
+  </div>
 </div>
 
 <footer>
-  © Earl Damian Portfolio - 2025
+  © Earl Damian Portfolio - 2026
 </footer>
 
 <script>
-  let currentSlide = 0;
-  const slides = document.querySelectorAll(".slide");
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  const galleryImgs = document.querySelectorAll(".gallery img");
+  const closeBtn = document.querySelector(".close-btn");
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
 
-  function showSlide(n) {
-    slides.forEach((slide, index) => {
-      slide.classList.remove("active-slide");
-      if(index === n) slide.classList.add("active-slide");
+  let currentIndex = 0;
+
+  // Open modal with selected image
+  galleryImgs.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      modal.style.display = "flex";
+      modal.classList.add("show");
+      modalImg.src = img.src;
+      currentIndex = index;
     });
-  }
+  });
 
-  function changeSlide(n) {
-    currentSlide += n;
-    if(currentSlide >= slides.length) currentSlide = 0;
-    if(currentSlide < 0) currentSlide = slides.length - 1;
-    showSlide(currentSlide);
-  }
+  // Close modal
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("show");
+    setTimeout(() => modal.style.display = "none", 300);
+  });
+
+  // Prev button
+  prevBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + galleryImgs.length) % galleryImgs.length;
+    modalImg.src = galleryImgs[currentIndex].src;
+  });
+
+  // Next button
+  nextBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % galleryImgs.length;
+    modalImg.src = galleryImgs[currentIndex].src;
+  });
+
+  // Close modal if click outside image
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.remove("show");
+      setTimeout(() => modal.style.display = "none", 300);
+    }
+  });
 </script>
 
 </body>
